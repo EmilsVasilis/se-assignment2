@@ -6,4 +6,4 @@ COPY . /app/
 
 RUN javac src/main/java/Main.java
 
-CMD [ "java", "Main" ]
+CMD [ "java", "src/main/java/Main" ]
