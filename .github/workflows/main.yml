@@ -30,7 +30,7 @@ jobs:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: se-assignment2:latest
+          tags: emilsvas/se-assignment2:latest
 
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
