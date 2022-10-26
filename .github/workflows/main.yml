@@ -13,23 +13,23 @@ jobs:
       uses: actions/checkout@v2
   
     - name: Login to Docker Hub
-      uses: docker/login-action@v1
+      uses: docker/docker/login-action@v1
       with:
        username: ${{secrets.DOCKER_HUB_USERNAME}}
        password: ${{secrets.DOCKER_HUB_ACCESS_TOKEN}}
     
     - name: Set up Docker Buildx
       id: buildx
-      uses: docker/setup-buildx-action@1
+      uses: docker/docker/setup-buildx-action@1
   
     - name: Build and push
       id: docker_build
-      uses: docker/build-push-action@v2
+      uses: docker/docker/build-push-action@v2
       with:
           context: ./
           file: ./Dockerfile
           push: true
-          tags: ${{ secrets.DOCKER_HUB_USERNAME }}/interactive_calculator:latest
+          tags: ${{ secrets.DOCKER_HUB_USERNAME }}
 
     - name: Image digest
       run: echo ${{ steps.docker_build.outputs.digest }}
