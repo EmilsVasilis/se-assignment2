@@ -6,7 +6,7 @@ on:
       - "v*.*.*"
 jobs:
   build:
-    runs-on: ubunt-latest
+    runs-on: ubuntu-latest
     
     steps:
     - name: Check out Repo
