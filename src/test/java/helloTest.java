@@ -6,6 +6,6 @@ public class helloTest {
 
     @Test
     public void testHello(){
-        assertEquals("Hello", hello.hello());
+        assertEquals(0, Calculator.evaluate("5^2-25"));
     }
 }
