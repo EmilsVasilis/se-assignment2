@@ -1,9 +1,10 @@
 FROM openjdk:17
 
-WORKDIR /app
+WORKDIR /opt
 
-COPY . /app/
+EXPOSE 8080
 
-RUN javac  src/main/java/*.java -d ./
+COPY target/*.jar /opt/app.jar
 
-CMD [ "java", "Main" ]
+
+CMD [ "java", "-jar","app.jar" ]
