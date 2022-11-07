@@ -8,7 +8,7 @@
         <version>2.7.5</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>org.example</groupId>
+    <groupId>com.example</groupId>
     <artifactId>se-assignment2</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>se-assignment2</name>
@@ -22,7 +22,6 @@
 
 
     <build>
-        <testSourceDirectory>${project.basedir}/src/test/java</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
