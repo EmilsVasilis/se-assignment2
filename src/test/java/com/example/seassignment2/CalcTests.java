@@ -1,4 +1,5 @@
-import com.example.seassignment2.calc;
+package com.example.seassignment2;
+
 import org.junit.jupiter.api.Test;
 
 import static org.junit.Assert.assertEquals;
