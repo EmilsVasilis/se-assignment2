@@ -1,12 +1,6 @@
+public class hello {
 
-
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-@RestController
-public  class hello {
-    @GetMapping("/hello")
-    public String index(){
-        return "Greetings";
-    }
+ public static String hello(){
+   return "Hello";
+ }
 }
