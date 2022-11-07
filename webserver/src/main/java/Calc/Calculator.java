@@ -1,17 +1,19 @@
+package Calc;
+
 import java.io.*;
 import java.util.*;
 
- 
+
 public class Calculator
 {
 	public static double evaluate(final String str) {
 	    return new Object() {
 	        int pos = -1, ch;
-	        
+
 	        void nextChar() {
 	            ch = (++pos < str.length()) ? str.charAt(pos) : -1;
 	        }
-	        
+
 	        boolean eat(int charToEat) {
 	            while (ch == ' ') nextChar();
 	            if (ch == charToEat) {
@@ -20,21 +22,21 @@ public class Calculator
 	            }
 	            return false;
 	        }
-	        
+
 	        double parse() {
 	            nextChar();
 	            double x = parseExpression();
 	            if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
 	            return x;
 	        }
-	        
+
 	        // Grammar:
 	        // expression = term | expression `+` term | expression `-` term
 	        // term = factor | term `*` factor | term `/` factor
 	        // factor = `+` factor | `-` factor | `(` expression `)` | number
 	        //        | functionName `(` expression `)` | functionName factor
 	        //        | factor `^` factor
-	        
+
 	        double parseExpression() {
 	            double x = parseTerm();
 	            for (;;) {
@@ -43,7 +45,7 @@ public class Calculator
 	                else return x;
 	            }
 	        }
-	        
+
 	        double parseTerm() {
 	            double x = parseFactor();
 	            for (;;) {
@@ -52,11 +54,11 @@ public class Calculator
 	                else return x;
 	            }
 	        }
-	        
+
 	        double parseFactor() {
 	            if (eat('+')) return +parseFactor(); // unary plus
 	            if (eat('-')) return -parseFactor(); // unary minus
-	            
+
 	            double x = 0;
 	            int startPos = this.pos;
 	            if (eat('(')) { // parentheses
@@ -84,13 +86,13 @@ public class Calculator
 	            } else {
 	                System.out.println("invalid input ");
 	            }
-	            
+
 	            if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
-	            
+
 	            return x;
 	        }
 	    }.parse();
 	}
-	
-	
+
+
 }
