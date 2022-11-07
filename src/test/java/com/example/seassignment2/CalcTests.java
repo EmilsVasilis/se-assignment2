@@ -6,7 +6,7 @@ import static org.junit.Assert.assertEquals;
 public class CalcTests {
 
     @Test
-    public void addTest(){
+    public void testCalc(){
         assertEquals(10, calc.add(5,5));
     }
 }
