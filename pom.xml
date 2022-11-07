@@ -22,7 +22,6 @@
 
 
     <build>
-        <testSourceDirectory>src/test/java/com/example/seassignment2</testSourceDirectory>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
