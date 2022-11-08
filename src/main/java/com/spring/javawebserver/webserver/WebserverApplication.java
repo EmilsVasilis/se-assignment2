@@ -74,7 +74,9 @@ class NoteController {
                             Model model) throws Exception {
 				Calculator Calc = new Calculator();
 				double result = Calc.evaluate(description);
+				// String error= Calc.evaluate(description);
 				model.addAttribute("result", result);
+				// model.addAttribute("error", error);
         // if (add != null && add.equals("Add note")) {
         //     // saveNote(description, model);
         //     // getAllNotes(model);
