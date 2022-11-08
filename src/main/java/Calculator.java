@@ -4,7 +4,8 @@ import java.util.*;
  
 public class Calculator
 {
-	public static double evaluate(final String str) {
+	static boolean error = false;
+	public static String evaluate(final String str) {
 	    return new Object() {
 	        int pos = -1, ch;
 	        
@@ -21,11 +22,18 @@ public class Calculator
 	            return false;
 	        }
 	        
-	        double parse() {
+	        String parse() {
 	            nextChar();
 	            double x = parseExpression();
 	            if (pos < str.length()) throw new RuntimeException("Unexpected: " + (char)ch);
-	            return x;
+	            if(!error)
+	            {
+	            return String.valueOf(x);
+	            }
+	            else
+	            {
+	            	return "Invalid input";
+	            }
 	        }
 	        
 	        // Grammar:
@@ -82,13 +90,27 @@ public class Calculator
 	                else if(func.equals("exp")) x = Math.exp(x);
 	                else throw new RuntimeException("Unknown function: " + func);
 	            } else {
-	                System.out.println("invalid input ");
+	                returnError();
 	            }
 	            
 	            if (eat('^')) x = Math.pow(x, parseFactor()); // exponentiation
-	            
+	            if(!error)
+	            {
 	            return x;
+	            }
+	            else
+	            {
+	            	return 404;
+	            }
 	        }
+
+			private void returnError() {
+				// TODO Auto-generated method stub
+				error = true;
+			}
+
+			
+			
 	    }.parse();
 	}
 	
